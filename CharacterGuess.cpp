@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <ctime>
 #include "CharacterGuess.h"
 
 
@@ -18,6 +19,7 @@ int main()
     int randNumb{};
     string answerS{0};
     int answer{0};
+    string person;
     //array variables
     int askedQuest[50] = { 0 };
     int arrayNumb{0};
@@ -66,6 +68,8 @@ int main()
 
 
                 //beginning of RND
+                /* initialize random seed: */
+                srand (time(0));
                 do
                 {    
                     //0 means there is nothing equal
@@ -126,10 +130,10 @@ int main()
 
 
 
-
+            person = myQuest.Checkpoints();
             //Figure out which character has the most points
             //Is your Character _____?
-            cout << "\n\n\nIs your character" << "Charcter with highest points" << "?" << endl;
+            cout << "\n\n\nIs your character " << person << "?" << endl;
             answer = myQuest.yesNo(); 
             //If Yes, then win
             if (answer == 1)

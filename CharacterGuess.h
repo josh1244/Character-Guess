@@ -37,6 +37,8 @@ class Questions //class
    void AnswerQuestion(int w, int x)
    {
        recAnswerArray[x] = w;
+        if (Marilyn_Monroe[x] == w) points[0] ++;
+        if (Abraham_lincoln[x] == w) points[1] ++;
     }
    
    //Ask yes or no
@@ -61,6 +63,22 @@ class Questions //class
     }
     
 
+    //Check Points
+   std::string Checkpoints()
+   {
+        for (int i = 0; i < 10; i++) 
+        {
+            //std::cout << i << points[i] << std::endl;
+            if (points[i] > highestPoints)
+            {
+                highestPoints = points[i];
+                highestPointPerson = i;
+            }
+        }
+        return people[highestPointPerson];
+    }
+
+
 
 
 
@@ -69,16 +87,17 @@ class Questions //class
     std::string answerS;
     int answer;
     int question;
-
+    int highestPoints;
+    int highestPointPerson;
 
 
 
 
 
     //array variables
-    std::string People[2] = {"Marilyn Monroe", "Abraham Lincoln"};
-    //Last value is their points
-    int Marilyn_Monroe[51] = {
+    std::string people[2] = {"Marilyn Monroe", "Abraham Lincoln"};
+    int points[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    int Marilyn_Monroe[50] = {
     0, 1, 0, 0, 1,
     0, 1, 1, 0, 1, 
     0, 0, 0, 1, 0, 
@@ -88,9 +107,8 @@ class Questions //class
     1, 0, 0, 0, 1,
     -1, -1, -1, -1, -1, 
     -1, -1, -1, -1, -1, 
-    -1, -1, -1, -1, -1
-    ,0};
-    int Abraham_lincoln[51] = {
+    -1, -1, -1, -1, -1};
+    int Abraham_lincoln[50] = {
     1, 0, 0, 0, 0,
     0, 1, 1, 0, 1, 
     -1, 0, 1, 0, 0, 
@@ -100,8 +118,7 @@ class Questions //class
     0, 0, 0, 0, 0,
     -1, -1, -1, -1, -1, 
     -1, -1, -1, -1, -1, 
-    -1, -1, -1, -1, -1
-    ,0};
+    -1, -1, -1, -1, -1};
     std::string questionArray[50] = 
     {"Is their hair black?", 
     "Is their hair brown?", 
@@ -145,21 +162,21 @@ class Questions //class
     "Do they kill?",
     "Do they sing?", 
 
-    "Are they Jesus?", 
-    "Are they Jesus?", 
-    "Are they Jesus?", 
-    "Are they Jesus?", 
-    "Are they Jesus?", 
-    "Are they Jesus?", 
-    "Are they Jesus?", 
-    "Are they Jesus?", 
-    "Are they Jesus?", 
-    "Are they Jesus?", 
-    "Are they Jesus?", 
-    "Are they Jesus?", 
-    "Are they Jesus?", 
-    "Are they Jesus?", 
-    "Are they Jesus?"};
+    "Are they Bob?", 
+    "Are they Bob?", 
+    "Are they Bob?", 
+    "Are they Bob?", 
+    "Are they Bob?", 
+    "Are they Bob?", 
+    "Are they Bob?", 
+    "Are they Bob?", 
+    "Are they Bob?", 
+    "Are they Bob?", 
+    "Are they Bob?", 
+    "Are they Bob?", 
+    "Are they Bob?", 
+    "Are they Bob?", 
+    "Are they Bob?"};
     //int questionAnswerArray[100] = { 0 };
     int recAnswerArray[50] = { 0 };
 
